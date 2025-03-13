@@ -1,0 +1,34 @@
+datadir: /path/to/datadirs/hermez-mainnet-shadowfork
+chain: hermez-mainnet-shadowfork
+http: true
+private.api.addr: localhost:9093
+zkevm.l2-chain-id: 1101
+zkevm.l2-sequencer-rpc-url: https://zkevm-rpc.com
+zkevm.l2-datastreamer-url: 34.175.204.255:6900
+zkevm.l1-chain-id: 11155111
+zkevm.l1-rpc-url: https://rpc.eu-central-1.gateway.fm/v4/ethereum/non-archival/sepolia?apikey=IkrTRMPAlsjfgTyKz1Xfa5ldS8XSc0PN.En5aU2Gwdxvf3zk2
+
+zkevm.address-sequencer: ""
+zkevm.address-zkevm: ""
+zkevm.address-rollup: "0x31A6ae85297DD0EeBD66D7556941c33Bd41d565C"
+zkevm.address-ger-manager: "0x76216E45Bdd20022eEcC07999e50228d7829534B"
+
+zkevm.l1-block-range: 20000
+zkevm.l1-query-delay: 6000
+zkevm.l1-first-block: 5192000
+zkevm.data-stream-port: 6900
+zkevm.datastream-version: 2
+zkevm.data-stream-host: localhost
+zkevm.sequencer-initial-fork-id: 8
+zkevm.sequencer-block-seal-time: 300ms
+zkevm.sequencer-batch-seal-time: 20s
+zkevm.effective-gas-price-eth-transfer: 0.34
+zkevm.effective-gas-price-erc20-transfer: 0.44
+zkevm.effective-gas-price-contract-invocation: 0.54
+zkevm.effective-gas-price-contract-deployment: 0.74
+zkevm.executor-strict: false
+zkevm.allow-free-transactions: true
+zkevm.allow-pre-eip155-transactions: true
+
+http.port: 8467
+http.api: [eth, debug, net, trace, web3, erigon, txpool, zkevm]

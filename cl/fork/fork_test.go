@@ -1,0 +1,33 @@
+/*
+   Copyright 2022 Erigon-Lightclient contributors
+   Licensed under the Apache License, Version 2.0 (the "License");
+   you may not use this file except in compliance with the License.
+   You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+*/
+
+package fork
+
+import (
+	"testing"
+
+	"github.com/stretchr/testify/require"
+)
+
+func TestMainnetComputeDomain(t *testing.T) {
+	domainType := [4]uint8{0x1, 0x0, 0x0, 0x0}
+	currentVersion := [4]uint8{0x3, 0x0, 0x0, 0x0}
+	genesesis := [32]uint8{0x4b, 0x36, 0x3d, 0xb9, 0x4e, 0x28, 0x61, 0x20, 0xd7, 0x6e, 0xb9, 0x5, 0x34, 0xf, 0xdd, 0x4e, 0x54, 0xbf, 0xe9, 0xf0, 0x6b, 0xf3, 0x3f, 0xf6,
+		0xcf, 0x5a, 0xd2, 0x7f, 0x51, 0x1b, 0xfe, 0x95}
+
+	expectedResult := []byte{0x1, 0x0, 0x0, 0x0, 0xbb, 0xa4, 0xda, 0x96, 0x35, 0x4c, 0x9f, 0x25, 0x47, 0x6c, 0xf1, 0xbc, 0x69, 0xbf, 0x58, 0x3a, 0x7f, 0x9e, 0xa, 0xf0, 0x49, 0x30, 0x5b, 0x62, 0xde, 0x67, 0x66, 0x40}
+
+	result, err := ComputeDomain(domainType[:], currentVersion, genesesis)
+	require.NoError(t, err)
+	require.Equal(t, expectedResult, result)
+}
